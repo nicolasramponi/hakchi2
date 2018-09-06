@@ -203,6 +203,7 @@
     <Compile Include="INetworkShell.cs" />
     <Compile Include="ISystemShell.cs" />
     <Compile Include="MemoryStats.cs" />
+    <Compile Include="ModHub\Repository\Repository.cs" />
     <Compile Include="Motd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2130,6 +2131,9 @@
       <Project>{e52ae256-6645-423a-b262-2cc5b6060f94}</Project>
       <Name>tiny7z</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModHub\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
