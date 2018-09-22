@@ -200,9 +200,22 @@
     <Compile Include="Hmod\Readme.cs" />
     <Compile Include="Hmod\Hmod.cs" />
     <Compile Include="Hmod\ReadmeCache.cs" />
+    <Compile Include="HTTPHelpers.cs" />
     <Compile Include="INetworkShell.cs" />
     <Compile Include="ISystemShell.cs" />
     <Compile Include="MemoryStats.cs" />
+    <Compile Include="ModHub\Controls\ModHubTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModHub\Controls\ModHubTabControl.Designer.cs">
+      <DependentUpon>ModHubTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModHub\ModHubForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModHub\ModHubForm.Designer.cs">
+      <DependentUpon>ModHubForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModHub\Repository\Repository.cs" />
     <Compile Include="Motd.cs">
       <SubType>Form</SubType>
@@ -314,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.de-DE.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModHub\Controls\ModHubTabControl.resx">
+      <DependentUpon>ModHubTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModHub\ModHubForm.resx">
+      <DependentUpon>ModHubForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Motd.de-DE.resx">
       <DependentUpon>Motd.cs</DependentUpon>
@@ -2132,9 +2151,7 @@
       <Name>tiny7z</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModHub\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>cd /D "$(ProjectDir)tools/" || cd "$(ProjectDir)tools/"

@@ -3055,8 +3055,8 @@ namespace com.clusterrr.hakchi_gui
                 if (sfd.ShowDialog(this) != DialogResult.OK)
                     return;
 
-                var installedMods = Hmod.Hmod.GetMods(true, this).OrderBy(o => o.RawName).ToList();
-                var availableMods = Hmod.Hmod.GetMods(false, this).OrderBy(o => o.RawName).ToList();
+                var installedMods = Hmod.Hmod.GetMods(true, null, this).OrderBy(o => o.RawName).ToList();
+                var availableMods = Hmod.Hmod.GetMods(false, null, this).OrderBy(o => o.RawName).ToList();
                 var separatorLine = "--------------------";
 
                 var outLines = new List<string>();
@@ -3080,6 +3080,17 @@ namespace com.clusterrr.hakchi_gui
                 addModInfoToReport(ref outLines, ref availableMods);
 
                 File.WriteAllText(sfd.FileName, String.Join("\r\n", outLines.ToArray()));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var repo = new ModHub.Repository.Repository("https://hakchi.net/KMFDManic/NESC-SNESC-Modifications/.repo/");
+            repo.LoadTasker(this);
+            using (var hub = new ModHub.ModHubForm())
+            {
+                hub.LoadData(repo.Items);
+                hub.ShowDialog(this);
             }
         }
     }
